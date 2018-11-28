@@ -14,6 +14,11 @@ class People extends Component {
                 name: 'Flavius Valerius Aurelius Constantinus Augustus',
                 role: 'Roman Emperor',
                 for: ' Romans conversion to Christianity'
+            },
+            {
+                name: 'Felicia Day',
+                role: 'Codex',
+                for: 'The Guild'
             }
         ]
     }
@@ -34,6 +39,15 @@ class People extends Component {
         let NewFamousPerson = this.state.person;
         this.setState(
             {
+                person: {
+                    name: '',
+                    role: '',
+                    for: ''
+                },
+            }
+        )
+        this.setState(
+            {
                 people: [
                     ...this.state.people,
                     NewFamousPerson
@@ -44,7 +58,7 @@ class People extends Component {
     render() {
         return (
             <div>
-                <FamousPeople person={this.state.person} handleChangeFor={this.handleChangeFor} handleClick={this.handleClick} />
+                <FamousPeople people={this.state.people} person={this.state.person} handleChangeFor={this.handleChangeFor} handleClick={this.handleClick} />
                 <PeopleArray people={this.state.people}/>
             </div>
         );
