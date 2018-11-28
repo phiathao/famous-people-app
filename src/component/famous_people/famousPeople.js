@@ -20,6 +20,9 @@ class FamousPeople extends Component {
             )
         }
     }
+    handleClick = (event) =>{
+        console.log(this.state);
+    }
     render() {
         return (
             <div>
@@ -27,7 +30,7 @@ class FamousPeople extends Component {
                     <input type='text' id='nameIn' className='form-control' aria-label='Small' aria-describedby='inputGroup-sizing-sm' placeholder='Name' onChange={this.handleChangeFor('name')}/>
                     <input type='text' id='roleIn' className='form-control' aria-label='Small' aria-describedby='inputGroup-sizing-sm' placeholder='Role' onChange={this.handleChangeFor('role')}/>
                     <input type='text' id='forIn' className='form-control' aria-label='Small' aria-describedby='inputGroup-sizing-sm' placeholder='Famous For' onChange={this.handleChangeFor('for')}/>
-                    <button type='button' class='btn btn-outline-primary' >Submit</button>
+                    <button type='button' id='submitBtn' class='btn btn-outline-primary' onClick={this.handleClick}>Submit</button>
                 </div>
                 <div id='insertOut'>
                     <p>{this.state.person.name} is famous for {this.state.person.for} as the {this.state.person.role}</p>
