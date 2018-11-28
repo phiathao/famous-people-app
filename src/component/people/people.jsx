@@ -35,9 +35,20 @@ class People extends Component {
         }
     }
     handleClick = (event) => {
+        if (this.state.person.name === '' || this.state.person.for === '' || this.state.person.role === ''){ // validation
+            return alert('all the form not fill');
+        }
         console.log(this.state);
-        let NewFamousPerson = this.state.person;
-        this.setState(
+        let NewFamousPerson = this.state.person; // grab what is on the input
+        this.setState( // add person to array
+            {
+                people: [
+                    ...this.state.people,
+                    NewFamousPerson
+                ]
+            }
+        )
+        this.setState( // clear input
             {
                 person: {
                     name: '',
@@ -46,20 +57,12 @@ class People extends Component {
                 },
             }
         )
-        this.setState(
-            {
-                people: [
-                    ...this.state.people,
-                    NewFamousPerson
-                ]
-            }
-        )
     }
     render() {
         return (
             <div>
                 <FamousPeople people={this.state.people} person={this.state.person} handleChangeFor={this.handleChangeFor} handleClick={this.handleClick} />
-                <PeopleArray people={this.state.people}/>
+                <PeopleArray people={this.state.people} />
             </div>
         );
     }
