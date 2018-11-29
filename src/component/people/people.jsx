@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FamousPeople from './famous_people/famousPeople';
 import PeopleArray from './PeopleArray/PeopleArray';
 
-class People extends Component {
+class People extends Component { // handle anything about people [people [famousPeople][PeopleArray]]
     state = {
         person: {
             name: '',
@@ -35,7 +35,7 @@ class People extends Component {
         }
     }
     handleClick = (event) => {
-        if (this.state.person.name === '' || this.state.person.for === '' || this.state.person.role === ''){ // validation
+        if (this.state.person.name === '' || this.state.person.for === '' || this.state.person.role === '') { // validation
             return alert('all the form not fill');
         }
         console.log(this.state);
